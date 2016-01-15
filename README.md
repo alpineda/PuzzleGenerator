@@ -1,5 +1,5 @@
 # PuzzleGenerator
-A Puzzle Generator that uses a local-solver algorithm to 'find' the most challenging and fun puzzles within 60 seconds. This project was completed as a part of CSCI 360 "Introduction to Artificial Intelligence" at the University of Southern California instructed by Sven Koenig.
+A Puzzle Generator that uses a local-solver algorithm to 'find' the most challenging and fun puzzles within 60 seconds. This project was completed as a part of CSCI 360 "Introduction to Artificial Intelligence" at the University of Southern California instructed by Sven Koenig. All project information (below) and starting code (indicated within the source files) was provided by and is property of Sven Koenig.
 
 Project Objective:
 Use local search methods (such as hill-climbing and simulated annealing) to generate puzzles that are optomized to be challenging and entertaining. Initially provided code has functionality for generating and evaluating puzzles (with respect to a predefined value function detailed below). The local-solver will be evaluated based on the value of the best puzzle it can generate within 60 seconds and will be tested using a variety of different puzzle constraints (i.e. size/complexity).
@@ -19,4 +19,21 @@ Each puzzle that is generated consists of a grid with r rows and c columns of ce
 | 1 | 4 | 4 | 3 | G |
 ---------------------
 
-The shortest solution for the instance above is 19 moves: R D L R U D R L R L U D L D R R U D D
+The shortest solution for the instance above is 19 moves: R D L R U D R L R L U D L D R R U D D.
+
+
+The Value Function for the Puzzle:
+Below are some features that are expected from a 'good' puzzle that is both challenging and entertaining.
+1) The puzzle has a solution.
+2) The puzzle has a unique shortest solution.
+3) The puzzle contains as few "black holes" (dead ends) as possible. A "black hole" is a cell that can be reached but once there, there is no possible way to ever reach the goal.
+4) The puzzle contains as few "white holes" as possible. A "white hole" is a cell that is not possible to get to.
+5) The puzzle contains as few forced forward moves as possible. A forced forward move occurs when there is only one action that leaves a reachable cell.
+6) The puzzle contains as few forced backward moves as possible. A forced backward move occurs when there is only one action that reaches a reaching cell.
+Using these features, we are able to quantitatively evaluate how "good" a puzzle is (i.e. how challenging and entertaining):
+1) Multiply the length of a puzzle by 5.
+2) Add (rows x columns) points if there is a unique shortest solution.
+3) Subtract 2 points for each white or black hole.
+4) Subtract 2 points for each forced forward or backward move.
+5) Subtract (rows x columns x 100) points if the puzzle does not have a solution.
+
