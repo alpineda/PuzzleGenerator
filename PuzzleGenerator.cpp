@@ -53,7 +53,7 @@ Puzzle PuzzleGenerator::GeneratePuzzle()
 }
 
 
-/** NOT USED (Simulated Annealing is Superior) **/
+/** NOT USED (Example Code provided by professor) **/
 Puzzle PuzzleGenerator::RandomWalk(double timelimit)
 {
 	// A very simple function that start at a random configuration and keeps randomly modifying it
